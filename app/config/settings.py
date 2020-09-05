@@ -1,4 +1,5 @@
 import os
+import datetime
 
 
 class Config:
@@ -15,10 +16,9 @@ class Config:
     MAIL_USE_TLS                    = False
     MAIL_USE_SSL                    = True
     JWT_SECRET_KEY                  = "jwt-super_secret_key"
-    JWT_TOKEN_LOCATION              = ["cookies"]
-    JWT_ACCESS_COOKIE_PATH          = "/api/"
-    JWT_COOKIE_CSRF_PROTECT         = False
-
+    JWT_ACCESS_TOKEN_EXPIRES        = datetime.timedelta(days=30)
+    TEST_LOADING                    = False
+    MAX_CONTENT_LENGTH              = 10000000
 
 class development(Config):
     ENV = "development"
